@@ -75,7 +75,7 @@ def find_urls(text):
     >>> find_urls('no links in this tweet')
     []
     '''
-    return re.findall(r'https?://www.\S+', text)
+    return re.findall(r'https?://\S+', text)
 
 
 def find_phone_numbers(text):
@@ -151,7 +151,7 @@ def is_valid_email(s):
     >>> is_valid_email('admission@cmc.edu' + chr(10))
     False
     '''
-    match = re.search(r'\w+@\w+\.\w{3}', s)
+    match = re.search(r'\w+@\w+\.\w+', s)
     if match:
         if s == match.group(0):
             return True
